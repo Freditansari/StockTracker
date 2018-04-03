@@ -40,9 +40,9 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/StockTracker?useUnicode=true&characterEncoding=utf8&useSSL=false
+        url: jdbc:mysql://128.199.211.144:3306/StockMonitor_Db?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: reseamatsih01
         hikari:
             data-source-properties:
                 cachePrepStmts: true
