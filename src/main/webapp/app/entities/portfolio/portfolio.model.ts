@@ -10,8 +10,8 @@ export class Portfolio implements BaseEntity {
         public lastUpdated?: any,
         public userLogin?: string,
         public userId?: number,
-        public instrumentSymbol?: string,
-        public instrumentId?: number,
+        public stockListSymbol?: string,
+        public stockListId?: number,
     ) {
     }
 }

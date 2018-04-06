@@ -22,7 +22,7 @@ entity Portfolio{
     lastUpdated ZonedDateTime,
 }
 relationship OneToMany{
-	StockList{portfolioFK} to Portfolio{Instrument(symbol)}
+	StockList to Portfolio{StockList(symbol)}
 }
 
 relationship ManyToOne{

@@ -28,10 +28,10 @@
         <dd>
             {{portfolio.userLogin}}
         </dd>
-        <dt><span>Instrument</span></dt>
+        <dt><span>Stock List</span></dt>
         <dd>
-            <div *ngIf="portfolio.instrumentId">
-                <a [routerLink]="['/stock-list', portfolio.instrumentId]">{{portfolio.instrumentSymbol}}</a>
+            <div *ngIf="portfolio.stockListId">
+                <a [routerLink]="['/stock-list', portfolio.stockListId]">{{portfolio.stockListSymbol}}</a>
             </div>
         </dd>
     </dl>

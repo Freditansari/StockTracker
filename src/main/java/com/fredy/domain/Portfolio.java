@@ -39,7 +39,7 @@ public class Portfolio implements Serializable {
     private User user;
 
     @ManyToOne
-    private StockList instrument;
+    private StockList stockList;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -128,17 +128,17 @@ public class Portfolio implements Serializable {
         this.user = user;
     }
 
-    public StockList getInstrument() {
-        return instrument;
+    public StockList getStockList() {
+        return stockList;
     }
 
-    public Portfolio instrument(StockList stockList) {
-        this.instrument = stockList;
+    public Portfolio stockList(StockList stockList) {
+        this.stockList = stockList;
         return this;
     }
 
-    public void setInstrument(StockList stockList) {
-        this.instrument = stockList;
+    public void setStockList(StockList stockList) {
+        this.stockList = stockList;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

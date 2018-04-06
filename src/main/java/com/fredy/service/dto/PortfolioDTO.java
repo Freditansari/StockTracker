@@ -28,9 +28,9 @@ public class PortfolioDTO implements Serializable {
 
     private String userLogin;
 
-    private Long instrumentId;
+    private Long stockListId;
 
-    private String instrumentSymbol;
+    private String stockListSymbol;
 
     public Long getId() {
         return id;
@@ -96,20 +96,20 @@ public class PortfolioDTO implements Serializable {
         this.userLogin = userLogin;
     }
 
-    public Long getInstrumentId() {
-        return instrumentId;
+    public Long getStockListId() {
+        return stockListId;
     }
 
-    public void setInstrumentId(Long stockListId) {
-        this.instrumentId = stockListId;
+    public void setStockListId(Long stockListId) {
+        this.stockListId = stockListId;
     }
 
-    public String getInstrumentSymbol() {
-        return instrumentSymbol;
+    public String getStockListSymbol() {
+        return stockListSymbol;
     }
 
-    public void setInstrumentSymbol(String stockListSymbol) {
-        this.instrumentSymbol = stockListSymbol;
+    public void setStockListSymbol(String stockListSymbol) {
+        this.stockListSymbol = stockListSymbol;
     }
 
     @Override

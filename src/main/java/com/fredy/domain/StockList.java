@@ -49,9 +49,9 @@ public class StockList implements Serializable {
     @Column(name = "summary_quote")
     private String summaryQuote;
 
-    @OneToMany(mappedBy = "instrument")
+    @OneToMany(mappedBy = "stockList")
     @JsonIgnore
-    private Set<Portfolio> portfolioFKS = new HashSet<>();
+    private Set<Portfolio> portfolios = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -179,29 +179,29 @@ public class StockList implements Serializable {
         this.summaryQuote = summaryQuote;
     }
 
-    public Set<Portfolio> getPortfolioFKS() {
-        return portfolioFKS;
+    public Set<Portfolio> getPortfolios() {
+        return portfolios;
     }
 
-    public StockList portfolioFKS(Set<Portfolio> portfolios) {
-        this.portfolioFKS = portfolios;
+    public StockList portfolios(Set<Portfolio> portfolios) {
+        this.portfolios = portfolios;
         return this;
     }
 
-    public StockList addPortfolioFK(Portfolio portfolio) {
-        this.portfolioFKS.add(portfolio);
-        portfolio.setInstrument(this);
+    public StockList addPortfolio(Portfolio portfolio) {
+        this.portfolios.add(portfolio);
+        portfolio.setStockList(this);
         return this;
     }
 
-    public StockList removePortfolioFK(Portfolio portfolio) {
-        this.portfolioFKS.remove(portfolio);
-        portfolio.setInstrument(null);
+    public StockList removePortfolio(Portfolio portfolio) {
+        this.portfolios.remove(portfolio);
+        portfolio.setStockList(null);
         return this;
     }
 
-    public void setPortfolioFKS(Set<Portfolio> portfolios) {
-        this.portfolioFKS = portfolios;
+    public void setPortfolios(Set<Portfolio> portfolios) {
+        this.portfolios = portfolios;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface StockListMapper extends EntityMapper<StockListDTO, StockList> {
 
 
-    @Mapping(target = "portfolioFKS", ignore = true)
+    @Mapping(target = "portfolios", ignore = true)
     StockList toEntity(StockListDTO stockListDTO);
 
     default StockList fromId(Long id) {

@@ -12,7 +12,7 @@ export class StockList implements BaseEntity {
         public industry?: string,
         public adr?: string,
         public summaryQuote?: string,
-        public portfolioFKS?: BaseEntity[],
+        public portfolios?: BaseEntity[],
     ) {
     }
 }

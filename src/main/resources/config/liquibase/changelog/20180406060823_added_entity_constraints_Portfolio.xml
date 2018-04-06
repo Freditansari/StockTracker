@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
-        <addForeignKeyConstraint baseColumnNames="instrument_id"
+        <addForeignKeyConstraint baseColumnNames="stock_list_id"
                                  baseTableName="portfolio"
-                                 constraintName="fk_portfolio_instrument_id"
+                                 constraintName="fk_portfolio_stock_list_id"
                                  referencedColumnNames="id"
                                  referencedTableName="stock_list"/>
 

@@ -13,12 +13,12 @@ public interface PortfolioMapper extends EntityMapper<PortfolioDTO, Portfolio> {
 
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "user.login", target = "userLogin")
-    @Mapping(source = "instrument.id", target = "instrumentId")
-    @Mapping(source = "instrument.symbol", target = "instrumentSymbol")
+    @Mapping(source = "stockList.id", target = "stockListId")
+    @Mapping(source = "stockList.symbol", target = "stockListSymbol")
     PortfolioDTO toDto(Portfolio portfolio);
 
     @Mapping(source = "userId", target = "user")
-    @Mapping(source = "instrumentId", target = "instrument")
+    @Mapping(source = "stockListId", target = "stockList")
     Portfolio toEntity(PortfolioDTO portfolioDTO);
 
     default Portfolio fromId(Long id) {

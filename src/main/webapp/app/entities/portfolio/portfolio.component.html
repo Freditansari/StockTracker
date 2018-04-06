@@ -23,7 +23,7 @@
             <th jhiSortBy="gain"><span>Gain</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="lastUpdated"><span>Last Updated</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="userLogin"><span>User</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="instrumentSymbol"><span>Instrument</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="stockListSymbol"><span>Stock List</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -39,8 +39,8 @@
                     {{portfolio.userLogin}}
                 </td>
                 <td>
-                    <div *ngIf="portfolio.instrumentId">
-                        <a [routerLink]="['../stock-list', portfolio.instrumentId  ]" >{{portfolio.instrumentSymbol}}</a>
+                    <div *ngIf="portfolio.stockListId">
+                        <a [routerLink]="['../stock-list', portfolio.stockListId  ]" >{{portfolio.stockListSymbol}}</a>
                     </div>
                 </td>
                 <td class="text-right">
