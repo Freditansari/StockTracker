@@ -1,0 +1,68 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPortfolioLabel">Create or edit a Portfolio</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!portfolio.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="portfolio.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastPrice">Last Price</label>
+            <input type="number" class="form-control" name="lastPrice" id="field_lastPrice"
+                [(ngModel)]="portfolio.lastPrice" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_purchasePrice">Purchase Price</label>
+            <input type="number" class="form-control" name="purchasePrice" id="field_purchasePrice"
+                [(ngModel)]="portfolio.purchasePrice" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_purchaseDate">Purchase Date</label>
+            <div class="d-flex">
+                <input id="field_purchaseDate" type="datetime-local" class="form-control" name="purchaseDate" [(ngModel)]="portfolio.purchaseDate"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_gain">Gain</label>
+            <input type="number" class="form-control" name="gain" id="field_gain"
+                [(ngModel)]="portfolio.gain" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_lastUpdated">Last Updated</label>
+            <div class="d-flex">
+                <input id="field_lastUpdated" type="datetime-local" class="form-control" name="lastUpdated" [(ngModel)]="portfolio.lastUpdated"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="portfolio.userId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_instrument">Instrument</label>
+            <select class="form-control" id="field_instrument" name="instrument" [(ngModel)]="portfolio.instrumentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="stockListOption.id" *ngFor="let stockListOption of stocklists; trackBy: trackStockListById">{{stockListOption.symbol}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

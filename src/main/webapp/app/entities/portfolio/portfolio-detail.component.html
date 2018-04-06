@@ -1,0 +1,52 @@
+
+<div *ngIf="portfolio">
+    <h2><span>Portfolio</span> {{portfolio.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Last Price</span></dt>
+        <dd>
+            <span>{{portfolio.lastPrice}}</span>
+        </dd>
+        <dt><span>Purchase Price</span></dt>
+        <dd>
+            <span>{{portfolio.purchasePrice}}</span>
+        </dd>
+        <dt><span>Purchase Date</span></dt>
+        <dd>
+            <span>{{portfolio.purchaseDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Gain</span></dt>
+        <dd>
+            <span>{{portfolio.gain}}</span>
+        </dd>
+        <dt><span>Last Updated</span></dt>
+        <dd>
+            <span>{{portfolio.lastUpdated | date:'medium'}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{portfolio.userLogin}}
+        </dd>
+        <dt><span>Instrument</span></dt>
+        <dd>
+            <div *ngIf="portfolio.instrumentId">
+                <a [routerLink]="['/stock-list', portfolio.instrumentId]">{{portfolio.instrumentSymbol}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'portfolio/'+ portfolio.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

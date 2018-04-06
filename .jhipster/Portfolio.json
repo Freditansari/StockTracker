@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "instrument",
+            "otherEntityName": "stockList",
+            "otherEntityField": "symbol"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lastPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "purchasePrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "purchaseDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "gain",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lastUpdated",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20180406060823",
+    "entityTableName": "portfolio",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

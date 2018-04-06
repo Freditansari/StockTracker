@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span>Portfolios</span>
+        <button class="btn btn-primary float-right jh-create-entity create-portfolio" [routerLink]="['/', { outlets: { popup: ['portfolio-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Portfolio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="portfolios">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastPrice"><span>Last Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="purchasePrice"><span>Purchase Price</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="purchaseDate"><span>Purchase Date</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="gain"><span>Gain</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastUpdated"><span>Last Updated</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userLogin"><span>User</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="instrumentSymbol"><span>Instrument</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let portfolio of portfolios ;trackBy: trackId">
+                <td><a [routerLink]="['../portfolio', portfolio.id ]">{{portfolio.id}}</a></td>
+                <td>{{portfolio.lastPrice}}</td>
+                <td>{{portfolio.purchasePrice}}</td>
+                <td>{{portfolio.purchaseDate | date:'medium'}}</td>
+                <td>{{portfolio.gain}}</td>
+                <td>{{portfolio.lastUpdated | date:'medium'}}</td>
+                <td>
+                    {{portfolio.userLogin}}
+                </td>
+                <td>
+                    <div *ngIf="portfolio.instrumentId">
+                        <a [routerLink]="['../stock-list', portfolio.instrumentId  ]" >{{portfolio.instrumentSymbol}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../portfolio', portfolio.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'portfolio/'+ portfolio.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'portfolio/'+ portfolio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

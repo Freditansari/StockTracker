@@ -1,0 +1,55 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "portfolioFK",
+            "otherEntityName": "portfolio",
+            "otherEntityRelationshipName": "instrument"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "symbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastSale",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "marketCap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ipoYear",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sector",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "industry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "summaryQuote",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180406060822",
+    "entityTableName": "stock_list",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
